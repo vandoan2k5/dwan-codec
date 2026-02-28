@@ -1,0 +1,18 @@
+[project]
+name = "lumina"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "datasets>=4.5.0",
+    "einops>=0.8.2",
+    "ipykernel>=7.2.0",
+    "soundfile>=0.13.1",
+    "torch>=2.10.0",
+    "torchaudio>=2.10.0",
+    "torchcodec>=0.10.0",
+    "torchinfo>=1.8.0",
+    "torchvision>=0.25.0",
+    "wandb>=0.25.0",
+]
