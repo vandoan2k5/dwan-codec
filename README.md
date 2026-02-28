@@ -91,6 +91,6 @@ wav_recon, sr = codec.decode(codes)
 
 ## 6. Một số tham khảo và hỗ trợ
 
-* gemini 
-* [text](https://github.com/duchenzhuang/FSQ-pytorch/tree/main)
-* [text](https://arxiv.org/abs/2309.15505)
+* **Gemini**
+* [duchenzhuang fsq training source ](https://github.com/duchenzhuang/FSQ-pytorch/tree/main)
+* [fsq paper](https://arxiv.org/abs/2309.15505)
