@@ -3,7 +3,7 @@
 import argparse
 import os
 import torch
-from utils import multiply_list
+from .common import multiply_list
 
 def add_model_config_args(parser):
     """Tham số cấu hình mô hình"""
@@ -84,7 +84,7 @@ def add_data_args(parser):
     group.add_argument('--duration', type=float, default=1.0,
                         help='Độ dài đoạn âm thanh tính bằng giây')
     
-    group.add_argument('--num-workers', type=int, default=2, # Kaggle nên để 2 hoặc 4
+    group.add_argument('--num-workers', type=int, default=4, # Kaggle nên để 2 hoặc 4
                        help="Số lượng worker nạp dữ liệu")
     return parser
 

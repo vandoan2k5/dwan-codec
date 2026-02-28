@@ -2,11 +2,9 @@ import torch
 import torchaudio
 import argparse
 import os
-from arguments import add_model_config_args, add_data_args, get_args
+from utils.arguments import add_model_config_args, add_data_args, get_args
 from models import VQVAE
 from torchinfo import summary
-
-
 
 def preprocess_audio(wav, sr, target_sr, hop_length):
     """

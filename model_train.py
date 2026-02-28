@@ -1,12 +1,12 @@
 import os
 import torch
 import torchaudio
-from arguments import get_args
+from utils.arguments import get_args
 from models import VQVAE, MultiDiscriminator
-from dataset import get_data_loaders
-from loss import MultiResolutionSTFTLoss, discriminator_loss, generator_loss, feature_matching_loss
-from utils import set_random_seed, mkdir_ckpt_dirs
-from scheduler import AnnealingLR
+from utils.dataset import get_data_loaders
+from utils.loss import MultiResolutionSTFTLoss, discriminator_loss, generator_loss, feature_matching_loss
+from utils.common import set_random_seed, mkdir_ckpt_dirs
+from utils.scheduler import AnnealingLR
 from tqdm import tqdm
 import wandb
 
