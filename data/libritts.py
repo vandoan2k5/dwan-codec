@@ -1,4 +1,6 @@
-# (lumina) /kaggle/dwan-audiocodec# python ./data/vivoice.py
+
+
+# (lumina) /kaggle/dwan-audiocodec# python ./data/libritts.py
 import os
 from datasets import load_dataset, Audio
 from concurrent.futures import ThreadPoolExecutor
@@ -6,7 +8,7 @@ import soundfile as sf
 from tqdm import tqdm
 
 # --- Cấu hình ---
-DATASET_NAME = "capleaf/viVoice"
+DATASET_NAME = "mythicinfinity/libritts_r"
 SAVE_DIR = "./data/"
 TARGET_SAMPLING_RATE = 24000
 LIMIT = 100000
@@ -18,9 +20,9 @@ def process_and_save(item):
     example, index = item
     try:
         if(index < 1000):
-            file_path = os.path.join(SAVE_DIR, "val", f"vivoice_{index:06d}.wav")
+            file_path = os.path.join(SAVE_DIR, "val", f"libri_{index:06d}.wav")
         else:
-            file_path = os.path.join(SAVE_DIR, "train", f"vivoice_{index:06d}.wav")
+            file_path = os.path.join(SAVE_DIR, "train", f"libri_{index:06d}.wav")
 
         
         # Nếu file đã tồn tại thì bỏ qua (tiện khi bị crash chạy lại)
@@ -35,7 +37,7 @@ def process_and_save(item):
 
 def main():
     print(f"🚀 Đang kết nối dataset (Streaming mode)...")
-    dataset = load_dataset(DATASET_NAME, split="train", streaming=True)
+    dataset = dataset = load_dataset("mythicinfinity/libritts_r", "all", split="train.other.500", streaming=True)
     dataset = dataset.cast_column("audio", Audio(sampling_rate=TARGET_SAMPLING_RATE))
     
     # Tạo generator để không bị load hết vào RAM
