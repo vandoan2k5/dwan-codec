@@ -1,4 +1,4 @@
-# Dwan Audio Codec (Lumina)
+# Dwan Audio Codec 
 Dwan Audio Codec là một hệ thống nén và tái tạo âm thanh (Audio Compression) hiệu quả dựa trên kiến trúc **VQ-VAE** kết hợp với mô hình **GAN (Generative Adversarial Network)**. Mô hình tập trung vào việc chuyển đổi tín hiệu âm thanh thô thành các mã số nén (discrete codes) và giải mã ngược lại với chất lượng cao nhờ vào bộ giải mã Vocos và kỹ thuật ISTFT.
 
 ## 1. Giới thiệu sơ lược về mô hình
