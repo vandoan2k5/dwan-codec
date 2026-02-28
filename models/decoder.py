@@ -195,7 +195,7 @@ class ISTFTHead(nn.Module):
         mag = torch.exp(mag)
         mag = torch.clip(mag, max=1e2) 
         
-        # Tổng hợp tín hiệu phức trực tiếp
+        # Tong hop tin hieu
         S = mag * (torch.cos(p) + 1j * torch.sin(p))
         audio = self.istft(S)
         return audio.unsqueeze(1)
@@ -228,14 +228,6 @@ class Decoder(nn.Module):
         )
 
     def forward(self, x):
-        # x: (B, C_embed, L)
         T = x.size(2)
-        
-        # Upsampling để khớp với số lượng frames của ISTFT
-        # x = F.interpolate(x, size=self.upscale * (T - 1) + 1, mode='linear', align_corners=True)
-        
-        # Qua Backbone (B, C_embed, L_new) -> (B, decoder_dim, L_new)
-        x = self.decoder(x)
-        
-        # Qua ISTFT Head -> Waveform (B, T_audio)
+        x = self.decoder(x)  
         return self.head(x)
