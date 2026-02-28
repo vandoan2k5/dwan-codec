@@ -200,7 +200,7 @@ class ISTFTHead(nn.Module):
         audio = self.istft(S)
         return audio.unsqueeze(1)
 
-class LuminaDecoder(nn.Module):
+class Decoder(nn.Module):
     def __init__(self, 
                  embed_dim=768, 
                  decoder_dim=768, 

@@ -1,8 +1,8 @@
 import torch
 from torch import nn
 from einops import rearrange
-from .encoder import LuminaEncoder
-from .decoder import LuminaDecoder
+from .encoder import Encoder
+from .decoder import Decoder
 from quantizers import VectorQuantizeEMA, FSQ, LFQ, FSQSTE
 
 class VQVAE(nn.Module):
@@ -11,7 +11,7 @@ class VQVAE(nn.Module):
         self.args = args
         
         # Khởi tạo Encoder
-        self.enc = LuminaEncoder(
+        self.enc = Encoder(
             in_channel=args.in_channel, 
             dims=getattr(args, 'encoder_dims', [128, 256, 512, 512]),
             depths=getattr(args, 'encoder_depths', [3, 3, 9, 3]),
@@ -33,7 +33,7 @@ class VQVAE(nn.Module):
             raise ValueError(f"Unknown quantizer: {args.quantizer}")
 
         # Khởi tạo Decoder với cơ chế bảo vệ AttributeError
-        self.dec = LuminaDecoder(
+        self.dec = Decoder(
             embed_dim=args.embed_dim,
             decoder_dim=getattr(args, 'decoder_dim', 768),
             decoder_num_layers=getattr(args, 'decoder_num_layers', 8),

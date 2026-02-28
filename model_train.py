@@ -2,8 +2,7 @@ import os
 import torch
 import torchaudio
 from arguments import get_args
-from models import VQVAE
-from discriminators import MultiDiscriminator
+from models import VQVAE, MultiDiscriminator
 from dataset import get_data_loaders
 from loss import MultiResolutionSTFTLoss, discriminator_loss, generator_loss, feature_matching_loss
 from utils import set_random_seed, mkdir_ckpt_dirs

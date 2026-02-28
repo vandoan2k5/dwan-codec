@@ -5,10 +5,10 @@ import os
 from argparse import Namespace
 from .vae import VQVAE  
 
-class Lumina:
+class DwanCodec:
     def __init__(self, config: Namespace, checkpoint_path: str, sample_rate: int, device='cuda'):
         """
-        Wrapper class cho Lumina VQ-VAE.
+        Wrapper class cho VQ-VAE.
         
         Args:
             config: Namespace chứa tham số model (in_channel, channel, etc.)

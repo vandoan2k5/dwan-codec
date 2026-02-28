@@ -1,3 +1,4 @@
+# (lumina) /kaggle/dwan-audiocodec# python ./data/vivoice.py
 import os
 from datasets import load_dataset, Audio
 from concurrent.futures import ThreadPoolExecutor
@@ -6,18 +7,21 @@ from tqdm import tqdm
 
 # --- Cấu hình ---
 DATASET_NAME = "capleaf/viVoice"
-SAVE_DIR = "/kaggle/codec/vivoice_250k_samples/train"
+SAVE_DIR = "./data/"
 TARGET_SAMPLING_RATE = 24000
 LIMIT = 250000
-MAX_WORKERS = 16  # Tăng số luồng để tận dụng băng thông mạng
+MAX_WORKERS = 4  # Tăng số luồng để tận dụng băng thông mạng
 
-os.makedirs(SAVE_DIR, exist_ok=True)
-
+os.makedirs(os.path.join(SAVE_DIR, "val"), exist_ok=True)
+os.makedirs(os.path.join(SAVE_DIR, "train"), exist_ok=True)
 def process_and_save(item):
     example, index = item
     try:
-        # File path
-        file_path = os.path.join(SAVE_DIR, f"{index:06d}.wav")
+        if(index < 1000):
+            file_path = os.path.join(SAVE_DIR, "val", f"{index:06d}.wav")
+        else:
+            file_path = os.path.join(SAVE_DIR, "train", f"{index:06d}.wav")
+
         
         # Nếu file đã tồn tại thì bỏ qua (tiện khi bị crash chạy lại)
         if os.path.exists(file_path):

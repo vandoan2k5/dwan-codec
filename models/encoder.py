@@ -45,7 +45,7 @@ class ConvNeXtBlock(nn.Module):
         x = residual + x
         return x
 
-class LuminaEncoder(nn.Module):
+class Encoder(nn.Module):
     def __init__(
         self, 
         in_channel=1, 

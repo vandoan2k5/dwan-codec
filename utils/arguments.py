@@ -73,9 +73,9 @@ def add_data_args(parser):
     group = parser.add_argument_group('data', 'data configurations')
     
     # Đường dẫn dữ liệu Audio trên Kaggle
-    group.add_argument('--train-data-path', type=str, default="/kaggle/codec/vivoice_250k_samples/train",
+    group.add_argument('--train-data-path', type=str, default="./data/train",
                         help="Đường dẫn thư mục chứa file .wav train")
-    group.add_argument('--val-data-path', type=str, default="/kaggle/codec/vivoice_250k_samples/val", 
+    group.add_argument('--val-data-path', type=str, default="./data/val", 
                        help="Đường dẫn thư mục chứa file .wav val")
     
     # Các thông số đặc thù cho Audio (Đã dùng trong dataset.py ở Bước 1)

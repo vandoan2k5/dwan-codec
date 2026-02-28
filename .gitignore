@@ -13,3 +13,5 @@ wheels/
 # Data
 vivoice_250k_samples/
 wandb/
+
+*.wav
